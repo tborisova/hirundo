@@ -59,7 +59,7 @@
                   <li role="presentation"><%= link_to "Log out", destroy_user_session_path, method: :delete%></li>
                 </ul>
               </li>
-            <li role="presentation"><a href="#">Tweet</a></li>
+            <li role="presentation"><%= link_to "Tweet", new_message_path%></li>
           </ul> 
         </div>
       </div>
@@ -95,7 +95,7 @@
           <%= "Joined #{current_user.updated_at.strftime("%B")} #{current_user.updated_at.strftime("%Y")}"%></p>
         </div>
         <div class="col-md-8">
-          <div class="jumbotron">
+          <div class="jumbotron backgound-white">
             <%= yield %>
           </div>
         </div>

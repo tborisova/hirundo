@@ -1,9 +1,11 @@
-<%= form_for @message do |f|%>
-  <%= f.label :content%>
-  <%= f.text_field :content%>
-  <br/>
-  <%= f.label :place_of_publishing %>
-  <%= f.text_field :place_of_publishing%>
-  <br/>
-  <%= f.submit "Create"%>
-<%end%>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="form-group">
+      <%= form_for(@message, :html => { :class => "navbar-form navbar-left"}) do |f| %>
+        <p><%= f.text_area :content, :class => "form-control", :placeholder => "Message" %></p>
+        <p><%= f.text_field :place_of_publishing, :class => "form-control", :placeholder => "Place of publishing" %></p>
+        <%= f.submit 'Create', :class => "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+</div>
