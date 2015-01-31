@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Toney" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Hirundo" %></title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -36,73 +36,49 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <body>
+  <body background="http://wallforu.com/wp-content/uploads/tree_nature_wallpaper.jpg">
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">Messages</a></li>
-          </ul>
-          <ul class="nav nav-pills pull-right"> 
-            <li role="presentation" class="navbar-form" role="search">
-              <input type="text" class="form-control" placeholder="Search">
-              <button type="submit" class="btn btn-default">Submit</button>
-            </li>
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                  More<span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li role="presentation"><a href="#">View profile</a></li>
-                  <li role="presentation"><a href="#">Log out</a></li>
-                </ul>
-              </li>
-            <li role="presentation"><a href="#">Tweet</a></li>
-          </ul> 
-        </div>
-      </div>
-    </div>
-    <br/>
-    <br/>
-    <br/>
+    <div class="navbar navbar-fluid-top bg-success"></div>
 
     <div class="container">
       <div class="row">
-        <div class="col-md-2">
-          <div class="jumbotron">
-            <p> </p>
-            <br/>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <a href="#">Tweets <span class="badge">42</span></a>
-          <a href="#">Following <span class="badge">42</span></a>
-          <a href="#">Followers <span class="badge">42</span></a>
-          <a href="#">Favourites <span class="badge">42</span></a>
-        </div>
-        <div class="col-md-2">
-          <div class="jumbotron">
-            <p> </p>
-            <br/>
+        <div class = "col-md-8"></div>
+        <div class = "col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form class="navbar-form navbar-left" role="login">
+                <div class="form-group">
+                  <p><input type="text" class="form-control" placeholder="Email"></p>
+                  <p><input type="text" class="form-control" placeholder="Password"></p>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+              </form>
             </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <div class="jumbotron">
-            <%= yield %>
           </div>
         </div>
-        <div class="col-md-2"></div>
       </div>
+
+      <div class="row">
+        <div class = "col-md-8"></div>
+        <div class = "col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <form class="navbar-form navbar-left" role="login">
+                <div class="form-group">
+                  <p><input type="text" class="form-control" placeholder="Full name"></p>
+                  <p><input type="text" class="form-control" placeholder="Email"></p>
+                  <p><input type="text" class="form-control" placeholder="Password"></p>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-warning">Sign up</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>  
     </div>
   </body>
 </html>

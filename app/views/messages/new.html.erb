@@ -1,0 +1,9 @@
+<%= form_for @message do |f|%>
+  <%= f.label :content%>
+  <%= f.text_field :content%>
+  <br/>
+  <%= f.label :place_of_publishing %>
+  <%= f.text_field :place_of_publishing%>
+  <br/>
+  <%= f.submit "Create"%>
+<%end%>

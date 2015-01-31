@@ -1,0 +1,12 @@
+<table border="1">
+  <tr>
+    <th>Message</th>
+    <th>Place of publishing</th>
+  </tr>
+  <% @messages.each do |message| %>
+    <tr>
+      <td><%= message.content%></td>
+      <td><%= message.place_of_publishing%></td>
+      </tr>
+  <% end %>  
+</table>  
