@@ -2,8 +2,6 @@ class TimelineController < ApplicationController
   
   layout "timeline"
   
-  before_action :authenticate_user!
-
   #allow only logged in users
   def index
     @messages = Message.in(user_id: current_user.list_of_followed_users) 

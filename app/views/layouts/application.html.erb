@@ -42,19 +42,24 @@
 
     <div class="container">
       <div class="row">
-        <div class = "col-md-8"></div>
+        <div class = "col-md-8">
+          <%= yield :new_password %>
+        </div>
         <div class = "col-md-4">
           <div class="panel panel-default">
             <div class="panel-body">
-              <form class="navbar-form navbar-left" role="login">
-                <div class="form-group">
-                  <p><input type="text" class="form-control" placeholder="Email"></p>
-                  <p><input type="text" class="form-control" placeholder="Password"></p>
-                </div>
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
-              </form>
+              <div class="form-group">
+                <%= form_for(:user, :url => session_path(:user), :method => :post, :html => { :class => "navbar-form navbar-left"}) do |f| %>
+                  <p><%= f.text_field :email, :class => "form-control", :placeholder => "Email" %></p>
+                  <%= f.password_field :password, :class => "form-control", :placeholder => "Password" %>
+                  <p>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                  </p>
+                  <%= f.submit 'Sign in', :class => "btn btn-primary" %>
+                  <%= link_to "Forgot your password?", new_password_path(:user) %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -62,23 +67,25 @@
 
       <div class="row">
         <div class = "col-md-8"></div>
-        <div class = "col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <form class="navbar-form navbar-left" role="login">
+          <div class = "col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
                 <div class="form-group">
-                  <p><input type="text" class="form-control" placeholder="Full name"></p>
-                  <p><input type="text" class="form-control" placeholder="Email"></p>
-                  <p><input type="text" class="form-control" placeholder="Password"></p>
-                </div>
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-warning">Sign up</button>
-                </div>
-              </form>
+                  <%= form_for(:user, url: registration_path(:user), :method => :post, :html => { :class => "navbar-form navbar-left"}) do |f| %>
+                   <%= devise_error_messages! %>
+                    <p><%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %></p>
+                    <p><%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %></p>
+                    <p><%= f.password_field :password_confirmation, autocomplete: "off", :class =>"form-control", :placeholder => "Password Confirmation" %></p>
+                    <p>
+                      <%= f.submit "Sign up", :class => "btn btn-warning" %>
+                    </p>
+                  <% end %>
+               </div>
             </div>
           </div>
         </div>
-      </div>  
+      </div>
+
     </div>
   </body>
 </html>

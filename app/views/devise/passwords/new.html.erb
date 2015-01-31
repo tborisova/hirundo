@@ -1,0 +1,16 @@
+<% content_for :new_password do %>
+  <div class = "col-md-6">
+    <p class="navbar-text navbar-left">Forgot your password?</p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <%= form_for(:user, :url => password_path(:user), :method => :post, :html => { :class => "navbar-form navbar-left"}) do |f| %>
+            <%= devise_error_messages! %>
+            <p><%= f.text_field :email, :class => "form-control", :placeholder => "Email" %></p>
+            <%= f.submit 'Send me reset password instructions', :class => "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>

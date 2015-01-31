@@ -1,7 +1,5 @@
 class MessagesController < ApplicationController
   layout "timeline"
-  
-  before_action :authenticate_user!
 
   def index
     @messages = Message.owned(current_user)
