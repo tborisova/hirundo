@@ -6,5 +6,5 @@ class Message
   field :place_of_publishing, type: String #, size: 30
   belongs_to :user
 
-  scope :owned, -> (user) { where(user_id: user.id) }
+  scope :owned, -> (user_id) { where(user_id: user_id) }
 end

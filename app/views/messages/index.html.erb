@@ -1,8 +1,1 @@
-<div class="list-group">
-  <% @messages.each do |message| %>
-      <a href="<%=message_path message%>" class="list-group-item">
-        <h3 class="list-group-item-heading"><%= message.content %></h3>
-        <p class="list-group-item-text"><%= message.place_of_publishing%></p>
-      </a>
-  <% end %>
-</div>
+<%= render partial: 'shared/messages'%>

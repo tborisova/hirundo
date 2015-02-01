@@ -1,0 +1,8 @@
+<div class="list-group">
+  <% @users.each do |user| %>
+      <a href="<%=from_user_path user%>" class="list-group-item">
+        <h5 class="list-group-item-text"><%= user.email %></h5>
+        <p class="list-group-item-text"><%= user.image %></p>
+      </a>
+  <% end %>
+</div>

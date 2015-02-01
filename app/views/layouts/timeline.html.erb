@@ -42,8 +42,8 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <ul class="nav nav-pills pull-left">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#" class="text-muted">Messages</a></li>
+            <li role="presentation" class="active"><%= link_to "Home", root_path%></li>
+            <li role="presentation"><%= link_to "Messages", new_message_path, :class => "text-muted"%></li>
           </ul>
           <ul class="nav nav-pills pull-right"> 
             <li role="presentation" class="navbar-form" role="search">
@@ -73,13 +73,13 @@
         <div class = "col-md-8">
           <nav class="navbar navbar-fluid">
             <ul class="nav nav-tabs pull-left">
-              <li role="presentation" class="active"><a href="#">Tweets <span class="badge">42</span></a></li>
-              <li role="presentation"><a href="#">Following <span class="badge">42</span></a></li>
-              <li role="presentation"><a href="#">Followers <span class="badge">42</span></a></li>
+              <li role="presentation" class="active"><a href="<%= tweets_link %>">Tweets <span class="badge"> <%= tweets_count %></span></a></li>
+              <li role="presentation"><a href="<%= followed_link %>">Following <span class="badge"> <%= followed_count %> </span></a></li>
+              <li role="presentation"><a href="<%= followers_link %>">Followers <span class="badge"> <%= followers_count%></span></a></li>
               <li role="presentation"><a href="#">Favourites <span class="badge">42</span></a></li>
             </ul>
             <ul class="nav nav-pills pull-right">
-              <li role="presentation" class="active"><a href="#">Follow</a></li>
+              <li role="presentation" class="active"><%= link_to "Follow", following_index_path(params[:id]), method: :post%></li>
             </ul>
           </nav>
         </div>

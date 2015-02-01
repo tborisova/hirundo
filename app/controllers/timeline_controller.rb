@@ -1,15 +1,20 @@
 class TimelineController < ApplicationController
-  
-  layout "timeline"
-  
-  #allow only logged in users
-  def index
-    @messages = Message.in(user_id: current_user.list_of_followed_users) 
-    #show all messages of users that the current user follows    
+
+  def followers
+    @user = User.find(params[:id])
+    @users = User.in(:id => Following.where(:followed_user_id => @user).map(&:user_id))
   end
 
-  def from_user
-    @messages = Message.owned(params[:id])
-    #tweers from specific user
+  def followed
+    @user = User.find(params[:id])
+    @users = User.in(:id => @user.followed_users.map(&:followed_user_id))
+    p @users.count
+    p 'SSSS'
+    p @users.first.email
+    p @user
+    # ids = Following.wher/e(:user_id => @user)
+    # @users = User.in(:id)
+    # @users = Following.where(:user_id => user_on_page)
   end
+  
 end
