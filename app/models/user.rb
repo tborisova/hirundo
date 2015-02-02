@@ -26,5 +26,6 @@ class User
 
   field :image, type: String
   field :name, type: String
+  field :background_image, type: String
   field :description, type: String
 end

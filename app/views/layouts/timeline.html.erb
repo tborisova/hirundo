@@ -55,7 +55,7 @@
                   More<span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                  <li role="presentation"><a href="#">View profile</a></li>
+                  <li role="presentation"><%= link_to "Profile", edit_user_registration_path %></li>
                   <li role="presentation"><%= link_to "Log out", destroy_user_session_path, method: :delete%></li>
                 </ul>
               </li>
@@ -90,11 +90,9 @@
       <div class="row">
         <div class="col-md-2">
           <p class="navbar-text navbar-left">
-          <a href="#" class="thumbnail">
-            <img src="http://www.game-debate.com/blog/images/mpu__id1396343946_343178_1.jpg" alt="...">
-          </a>
-          <%= current_user.email%>
-          <%= "Joined #{user_on_page.updated_at.strftime("%B")} #{user_on_page.updated_at.strftime("%Y")}"%></p>
+          <%= link_to image_tag(user_on_page.image), from_user_path(user_on_page), :class => "thumbnail" %>
+          <%= current_user.email %>
+          <%= "Joined #{user_on_page.updated_at.strftime("%B")} #{user_on_page.updated_at.strftime("%Y")}" %></p>
         </div>
         <div class="col-md-8">
           <div class="jumbotron backgound-white">
