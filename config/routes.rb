@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'followed/:id' => "timeline#followed", as: :followed
 
   resources :messages
-  resources :following, :only => [:create, :destroy]
+  post 'follow/:id' => 'following#create', as: :follow
+  delete 'unfollow/:id' => 'following#destroy', as: :unfollow
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -78,9 +78,11 @@
               <li role="presentation"><a href="<%= followers_link %>">Followers <span class="badge"> <%= followers_count%></span></a></li>
               <li role="presentation"><a href="#">Favourites <span class="badge">42</span></a></li>
             </ul>
-            <ul class="nav nav-pills pull-right">
-              <li role="presentation" class="active"><%= link_to "Follow", following_index_path(params[:id]), method: :post%></li>
-            </ul>
+            <% if show_follow_unfollow_link? %>
+              <ul class="nav nav-pills pull-right">
+                <li role="presentation" class="active"><%= follow_unfollow_link %></li>
+              </ul>
+            <% end %>
           </nav>
         </div>
         <div class = "col-md-2"></div>
@@ -92,7 +94,7 @@
             <img src="http://www.game-debate.com/blog/images/mpu__id1396343946_343178_1.jpg" alt="...">
           </a>
           <%= current_user.email%>
-          <%= "Joined #{current_user.updated_at.strftime("%B")} #{current_user.updated_at.strftime("%Y")}"%></p>
+          <%= "Joined #{user_on_page.updated_at.strftime("%B")} #{user_on_page.updated_at.strftime("%Y")}"%></p>
         </div>
         <div class="col-md-8">
           <div class="jumbotron backgound-white">

@@ -47,5 +47,20 @@ module TimelineHelper
   def followers_count
     Following.where(:followed_user_id => user_on_page).count
   end
+
+  def show_follow_unfollow_link?
+    if current_user.id.to_s == params[:id] || params[:id].blank?
+      false
+    else
+      true
+    end
+  end
   
+  def follow_unfollow_link
+    if Following.where(user_id: current_user.id, followed_user_id: params[:id])[0]
+      link_to "Unfollow", unfollow_path(params[:id]), method: :delete
+    else
+      link_to "Follow", follow_path(params[:id]), method: :post
+    end
+  end
 end
