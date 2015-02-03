@@ -63,4 +63,12 @@ module TimelineHelper
       link_to "Follow", follow_path(params[:id]), method: :post
     end
   end
+
+  def choose_class(path)
+    if action_name.match path
+      "active"
+    else
+      ""
+    end
+  end
 end

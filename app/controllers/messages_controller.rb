@@ -2,10 +2,6 @@ class MessagesController < ApplicationController
   layout "timeline"
 
   def index
-    @messages = Message.owned(current_user)
-  end
-
-  def from_followed_users
     @messages = Message.in(user_id: current_user.followed_users.map(&:followed_user_id))
   end
 

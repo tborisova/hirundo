@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
-  root "messages#from_followed_users" 
-  get 'from_followed_users' => "messages#from_followed_users", as: :from_followed_users
+  root "messages#index" 
   get 'from_user/:id' => "messages#from_user", as: :from_user
+
   get 'followers/:id' => "timeline#followers", as: :followers
   get 'followed/:id' => "timeline#followed", as: :followed
 

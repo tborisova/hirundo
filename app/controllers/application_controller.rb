@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def resource_name
     :user
@@ -15,5 +16,13 @@ class ApplicationController < ActionController::Base
  
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    [:image, :background_image, :name, :description, :email].each do |param|
+      devise_parameter_sanitizer.for(:account_update) << param
+    end
   end
 end
