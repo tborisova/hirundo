@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
   root "messages#index" 
   get 'from_user/:id' => "messages#from_user", as: :from_user
-
+  get 'users/all' => "users#index", as: :all_users
   get 'followers/:id' => "timeline#followers", as: :followers
   get 'followed/:id' => "timeline#followed", as: :followed
 

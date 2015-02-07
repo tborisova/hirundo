@@ -1,24 +1,7 @@
 class UsersController < ApplicationController
-
+  layout "timeline"
+  
   def index
-    @users = User.all
-  end
-
-  def show
-    @user = User.find(params[:id])
-    @messages = @user.messages
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def updated
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-  end
-
-  def user_params
-    params[:user].permit(:image, :description, :name)
+    @users = User.not.in(id: current_user.id)
   end
 end
