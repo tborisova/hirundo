@@ -36,8 +36,11 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <body background=<%= user_on_page.background_image%>>
-
+  <% if user_on_page.background_image.present? %>
+    <body background=<%= user_on_page.background_image%>>
+  <% else %>
+    <body class="background-image-clouds">
+  <% end %>
     <div class="navbar navbar-fluid-top bg-success">
       <div class="navbar-inner">
         <div class="container-fluid">
