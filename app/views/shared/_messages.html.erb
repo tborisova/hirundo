@@ -4,7 +4,7 @@
       <h3 class="list-group-item-text"><%= message.content %></h3>
       <p class="list-group-item-text"><%= message.place_of_publishing%></p>
       <p class="list-group-item-text"><%= "created at #{message.created_at.strftime("%e %b %Y %H:%M:%S%p")}"%></p>
-      <% if user_on_page.id == message.user.id %>
+      <% if current_user.id == message.user.id %>
         <%= link_to "Edit", edit_message_path(message)%> <%= link_to "Destroy", message_path(message), method: :delete%>
       <% end %>
       <hr>

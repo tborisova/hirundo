@@ -1,5 +1,10 @@
-<div class="list-group">
-  <% @users.each do |user| %>
-      <%= link_to user.email, from_user_path(user.id) %>
-  <% end %>
-</div>
+<table class="table table-hover">
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.email, from_user_path(user.id) %></td>
+      <% if user.image.present? %>
+        <td><%= image_tag(user.image, :width =>"50px", :height => "50px") %></td>
+      <% end %>
+    </tr>
+    <%end%>
+</table>

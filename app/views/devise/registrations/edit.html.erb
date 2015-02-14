@@ -1,20 +1,18 @@
-<div class = "col-md-6">
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="form-group">
-        <%= form_for(:user, :url => registration_path(:user), :method => :put) do |f| %>
-          <%= devise_error_messages! %>
-          <p><%= f.text_field :email, :class => "form-control", :placeholder => "Email" %></p>
-          <p><%= f.text_field :current_password, :class => "form-control password", :placeholder => "Current password" %></p>
-          <p><%= f.text_field :password, :class => "form-control", :placeholder => "Password" %></p>
-          <p><%= f.text_field :password_confirmation, :class => "form-control", :placeholder => "Password Confirmation" %></p>
-          <p><%= f.text_field :username, :class => "form-control", :placeholder => "Username" %></p>
-          <p><%= f.text_field :image, :class => "form-control", :placeholder => "Image link" %></p>
-          <p><%= f.text_field :background_image, :class => "form-control", :placeholder => "Background image link" %></p>
-          <p><%= f.text_field :description, :class => "form-control", :placeholder => "Description" %></p>
-          <%= f.submit 'Update', :class => "btn btn-primary" %>
-        <% end %>
-      </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="form-group">
+      <%= form_for(:user, :url => registration_path(:user), :method => :put) do |f| %>
+        <%= devise_error_messages! %>
+        <p><%= f.text_field :email, :class => "form-control", :placeholder => "Email" %></p>
+        <p><%= f.text_field :current_password, :class => "form-control password", :placeholder => "Current password" %></p>
+        <p><%= f.text_field :password, :class => "form-control", :placeholder => "Password" %></p>
+        <p><%= f.text_field :password_confirmation, :class => "form-control", :placeholder => "Password Confirmation" %></p>
+        <p><%= f.text_field :username, :class => "form-control", :placeholder => "Username" %></p>
+        <p><%= f.text_field :image, :class => "form-control", :placeholder => "Image link" %></p>
+        <p><%= f.text_field :background_image, :class => "form-control", :placeholder => "Background image link" %></p>
+        <p><%= f.text_field :description, :class => "form-control", :placeholder => "Description" %></p>
+        <%= f.submit 'Update', :class => "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>

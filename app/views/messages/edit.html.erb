@@ -1,11 +1,1 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="form-group">
-      <%= form_for(@message, :html => { :class => "navbar-form navbar-left"}) do |f| %>
-        <p><%= f.text_area :content, :class => "form-control", :placeholder => "Message" %></p>
-        <p><%= f.text_field :place_of_publishing, :class => "form-control", :placeholder => "Place of publishing" %></p>
-        <%= f.submit 'Create', :class => "btn btn-info" %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render partial: 'form' %>
