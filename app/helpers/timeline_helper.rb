@@ -1,10 +1,10 @@
 module TimelineHelper
 
-  def tweets_link
+  def messages_link
     from_user_path(user_on_page.id) if user_on_page
   end
 
-  def tweets_count
+  def messages_count
     Message.where(user_id: user_on_page.id).count if user_on_page
   end
 

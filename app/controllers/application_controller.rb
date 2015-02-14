@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    [:image, :background_image, :name, :description, :email].each do |param|
+    [:image, :background_image, :username, :description, :email].each do |param|
       devise_parameter_sanitizer.for(:account_update) << param
     end
   end

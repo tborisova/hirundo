@@ -20,12 +20,11 @@ class User
   field :remember_created_at, type: Time
 
   field :verified, type: Boolean
+  field :image, type: String
+  field :username, type: String
+  field :background_image, type: String
+  field :description, type: String
 
   has_many :messages
   has_many :followed_users, class_name: "Following", inverse_of: :user
-
-  field :image, type: String
-  field :name, type: String
-  field :background_image, type: String
-  field :description, type: String
 end

@@ -62,7 +62,7 @@
                   <li role="presentation"><%= link_to "Log out", destroy_user_session_path, method: :delete%></li>
                 </ul>
               </li>
-            <li role="presentation"><%= link_to "Tweet", new_message_path%></li>
+            <li role="presentation"><%= link_to "Write on your wall", new_message_path%></li>
           </ul> 
         </div>
       </div>
@@ -76,7 +76,7 @@
         <div class = "col-sm-6">
           <nav class="navbar navbar-fluid">
             <ul class="nav nav-tabs pull-left">
-              <li role="presentation" class=<%= choose_class('from_user') %>><a href="<%= tweets_link %>">Tweets <span class="badge"> <%= tweets_count %></span></a></li>
+              <li role="presentation" class=<%= choose_class('from_user') %>><a href="<%= messages_link %>">Messages <span class="badge"> <%= messages_count %></span></a></li>
               <li role="presentation" class=<%= choose_class('followed') %>><a href="<%= followed_link %>">Following <span class="badge"> <%= followed_count %> </span></a></li>
               <li role="presentation" class=<%= choose_class('followers') %>><a href="<%= followers_link %>">Followers <span class="badge"> <%= followers_count%></span></a></li>
             </ul>
