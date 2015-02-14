@@ -15,3 +15,14 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+  if ($('#messages').length > 0) {
+    setTimeout(updateMessages, 30000);
+  }
+});
+
+function updateMessages() {
+  $.getScript('/messages.js');
+  setTimeout(updateMessages, 30000);
+}

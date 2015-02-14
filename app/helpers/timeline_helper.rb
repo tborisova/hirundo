@@ -1,35 +1,19 @@
 module TimelineHelper
 
   def tweets_link
-    if params[:id].present?
-      from_user_path(params[:id])
-    else
-      from_user_path(current_user.id)
-    end
+    from_user_path(user_on_page.id) if user_on_page
   end
 
   def tweets_count
-    if params[:id].present?
-      Message.where(user_id: params[:id]).count
-    else
-      Message.where(user_id: current_user).count
-    end
+    Message.where(user_id: user_on_page.id).count if user_on_page
   end
 
   def followers_link
-    if params[:id].present?
-      followers_path(params[:id])
-    else
-      followers_path(current_user.id)
-    end
+    followers_path(user_on_page.id) if user_on_page
   end
 
   def followed_link
-    if params[:id].present?
-      followed_path(params[:id])
-    else
-      followed_path(current_user.id)
-    end
+    followed_path(user_on_page.id) if user_on_page
   end    
 
   def user_on_page

@@ -36,7 +36,7 @@
 
     <%= javascript_include_tag "application" %>
   </head>
-  <% if user_on_page.background_image.present? %>
+  <% if user_on_page && user_on_page.background_image.present? %>
     <body background=<%= user_on_page.background_image%>>
   <% else %>
     <body class="background-image-clouds">

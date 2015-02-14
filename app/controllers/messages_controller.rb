@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   layout "timeline"
 
   def index
-    @messages = Message.in(user_id: current_user.followed_users.map(&:followed_user_id))
+    @messages = Message.in(user_id: current_user.followed_users.map(&:followed_user_id)).sort(_id: -1).limit(20)
   end
 
   def from_user
