@@ -8,6 +8,7 @@ class Message
   belongs_to :user, index: true
 
   validates_length_of :content, minimum: 1, maximum: 140
+  validates_length_of :place_of_publishing, maximum: 30
   
   scope :owned, -> (user_id) { where(user_id: user_id) }
 end
