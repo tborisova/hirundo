@@ -27,4 +27,6 @@ class User
 
   has_many :messages
   has_many :followed_users, class_name: "Following", inverse_of: :user
+
+  validates_length_of :username, minimum: 5, maximum: 16
 end

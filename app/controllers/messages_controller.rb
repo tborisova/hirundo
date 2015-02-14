@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   end
 
   def from_user
-    @messages = Message.where(user_id: params[:id])
+    @messages = Message.where(user_id: params[:id]).sort(_id: -1).limit(50)
   end
 
   def show
@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params.merge(user_id: current_user.id))
 
     if @message.save
-      redirect_to action: :index
+      redirect_to from_user_path(current_user)
     else
       render :new
     end
@@ -32,11 +32,14 @@ class MessagesController < ApplicationController
   end
 
   def update
-    @message = Message.update(message_params)
+    @message = Message.find(params[:id])
+    @message.update_attributes(message_params)
+    redirect_to from_user_path(current_user)  
   end
 
   def destroy
     @message = Message.find(params[:id]).destroy
+    redirect_to from_user_path(current_user)
   end
 
   def message_params

@@ -46,8 +46,7 @@
         <div class="container-fluid">
           <ul class="nav nav-pills pull-left">
             <li role="presentation" class="active"><%= link_to "Home", root_path%></li>
-            <li role="presentation"><%= link_to "Messages", new_message_path, :class => "text-muted"%></li>
-          </ul>
+            </ul>
           <ul class="nav nav-pills pull-right"> 
             <li role="presentation" class="navbar-form" role="search">
               <input type="text" class="form-control" placeholder="Search">
@@ -92,7 +91,9 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="thumbnail">
-            <%= link_to image_tag(user_on_page.image), from_user_path(user_on_page), :class => "thumbnail" %>
+            <% if user_on_page.image.present? %>
+              <%= link_to image_tag(user_on_page.image), from_user_path(user_on_page), :class => "thumbnail" %>
+            <% end %>
             <div class="caption">
               <p><%= user_on_page.email %></p>
               <p><%= "Joined #{user_on_page.updated_at.strftime("%B")} #{user_on_page.updated_at.strftime("%Y")}" %></p>

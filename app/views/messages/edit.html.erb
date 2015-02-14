@@ -2,16 +2,6 @@
   <div class="panel-body">
     <div class="form-group">
       <%= form_for(@message, :html => { :class => "navbar-form navbar-left"}) do |f| %>
-           <% if @message.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@message.errors.count, "error") %> prohibited this msg from being saved:</h2>
-              <ul>
-                <% @message.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
         <p><%= f.text_area :content, :class => "form-control", :placeholder => "Message" %></p>
         <p><%= f.text_field :place_of_publishing, :class => "form-control", :placeholder => "Place of publishing" %></p>
         <%= f.submit 'Create', :class => "btn btn-info" %>

@@ -17,7 +17,7 @@ module TimelineHelper
   end    
 
   def user_on_page
-    if params[:id].present?
+    if params[:id].present? && (controller_name != 'messages' && action_name != 'edit' && action_name != 'update')
       @user_on_page ||= User.find(params[:id])
     else
       @user_on_page ||= current_user
